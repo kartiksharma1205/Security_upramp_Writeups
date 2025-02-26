@@ -11,7 +11,7 @@ This lab is all about learning how to check AWS IAM settings and find out what p
 - Understand how some settings can lead to privilege escalation.  
 - Get hands-on experience with AWS security.  
 
-## Setting Up the Lab  
+
 
 ### What You Need  
 - An AWS account.  
