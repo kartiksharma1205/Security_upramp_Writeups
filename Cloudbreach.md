@@ -1,4 +1,4 @@
-**Title:** Beginner's Guide to Log Analysis for Security Monitoring
+**Title:** Log Analysis for Security Monitoring
 
 ### **Introduction**
 Log analysis is an important part of keeping computer systems safe. It helps organizations detect, investigate, and stop potential security threats. This guide explains a simple approach to understanding logs, finding unusual activities, and improving security.
