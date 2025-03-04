@@ -36,11 +36,6 @@ The lab provided a zip file (`INCIDENT-3252.zip`) containing CloudTrail logs. Th
 2. Prettifying the JSON Logs
 The CloudTrail logs were in JSON format but weren't easy to read. I used jq to prettify the JSON files for better analysis.
 
-Installing jq
-If not already installed, I installed jq using:
-
-
-```sudo apt install jq```
 
 Prettifying the Logs
 I ran the following command to prettify all JSON files in the directory:
