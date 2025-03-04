@@ -1,5 +1,4 @@
-markdown
-Copy
+
 # Breach in the Cloud - PwnedLabs Writeup
 
 ## Overview
