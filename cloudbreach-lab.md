@@ -41,13 +41,14 @@ If not already installed, I installed jq using:
 
 bash
 Copy
-sudo apt install jq
+```sudo apt install jq```
+
 Prettifying the Logs
 I ran the following command to prettify all JSON files in the directory:
 
 bash
 Copy
-for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
+```for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done```
 Now, the logs were much easier to read and analyze.
 
 3. Identifying Suspicious Activity
@@ -56,7 +57,7 @@ I started by searching for all userName entries in the logs to identify any unus
 Searching for Usernames
 bash
 Copy
-grep -r userName | sort -u
+```grep -r userName | sort -u```
 This revealed a suspicious username: temp-user. This account didn't match the company's naming convention, so I decided to investigate further.
 
 4. Analyzing the temp-user Account
@@ -65,7 +66,7 @@ I focused on the earliest log file (107513503799_CloudTrail_us-east-1_20230826T2
 Searching for temp-user Activity
 bash
 Copy
-grep -h -A 10 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json
+```grep -h -A 10 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json```
 The logs showed that temp-user executed the GetCallerIdentity command, which is similar to the whoami command in Linux. This command is often used by attackers to check the permissions of compromised credentials.
 
 Key Findings:
@@ -78,7 +79,7 @@ I used curl to check the IP address information:
 
 bash
 Copy
-curl ipinfo.io/84.32.71.19
+```curl ipinfo.io/84.32.71.19```
 The IP was located in Turkey, confirming that the activity was suspicious.
 
 6. Enumerating Permissions
@@ -87,7 +88,7 @@ Next, I analyzed the logs to see what actions temp-user attempted. I found that 
 Searching for S3 Activity
 bash
 Copy
-grep eventName 107513503799_CloudTrail_us-east-1_20230826T2120Z_UCUhsJa0zoFY3ZO0.json
+```grep eventName 107513503799_CloudTrail_us-east-1_20230826T2120Z_UCUhsJa0zoFY3ZO0.json```
 The logs showed that temp-user successfully downloaded a file named emergency.txt from the bucket.
 
 7. Simulating the Attacker's Actions
@@ -98,36 +99,36 @@ I set up the AWS CLI with the compromised credentials:
 
 bash
 Copy
-aws configure
+```aws configure```
 Checking Execution Context
 I verified the execution context using:
 
 bash
 Copy
-aws sts get-caller-identity
+```aws sts get-caller-identity```
 Assuming the Admin Role
 The logs revealed that temp-user assumed an IAM role named AdminRole. I simulated this action:
 
 bash
 Copy
-aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name MySession
+```aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name MySession```
 After assuming the role, I verified the new execution context:
 
 bash
 Copy
-aws sts get-caller-identity
+```aws sts get-caller-identity```
 8. Accessing the S3 Bucket
 With the elevated permissions, I listed the contents of the emergency-data-recovery bucket:
 
 bash
 Copy
-aws s3 ls s3://emergency-data-recovery
+```aws s3 ls s3://emergency-data-recovery```
 I then downloaded the sensitive files:
 
 bash
 Copy
-aws s3 cp s3://emergency-data-recovery/emergency.txt .
-aws s3 cp s3://emergency-data-recovery/message.txt .
+```aws s3 cp s3://emergency-data-recovery/emergency.txt .```
+```aws s3 cp s3://emergency-data-recovery/message.txt .```
 The file emergency.txt contained the flag, confirming the breach.
 
 Key Takeaways
