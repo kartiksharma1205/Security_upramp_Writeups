@@ -46,6 +46,7 @@ Prettifying the Logs
 I ran the following command to prettify all JSON files in the directory:
 
 ```for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done```
+
 Now, the logs were much easier to read and analyze.
 
 3. Identifying Suspicious Activity
