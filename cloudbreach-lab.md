@@ -68,7 +68,6 @@ Searching for Usernames
 This revealed a suspicious username: temp-user. This account didn't match the company's naming convention, so I decided to investigate further.
 
 4. Analyzing  all the Account
-I focused on the earliest log file (107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json) to see what actions temp-user performed.
 
 Searching for temp user Activity
 
@@ -141,6 +140,634 @@ Latitude:41.8758 (41° 52′ 32.78″ N)
 
 Longitude:-87.6206 (87° 37′ 14.18″ W)
 ```
+Checking another json for temp user activity
+
+```
+grep -h -A 30 temp-user 107513503799_CloudTrail_us-east-1_20230826T2050Z_iUtQqYPskB20yZqT.json
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListAccountAliases",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.5",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: iam:ListAccountAliases on resource: * because no identity-based policy allows the iam:ListAccountAliases action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "b9a8da9b-186f-43a9-8f8f-af06b88a04ba",
+      "eventID": "e85acf53-e122-4355-ae85-25fc6d019e46",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListInstanceProfiles",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.49",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: iam:ListInstanceProfiles on resource: arn:aws:iam::107513503799:instance-profile/ because no identity-based policy allows the iam:ListInstanceProfiles action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "2fde5739-be1f-4747-88c6-9636b75b00aa",
+      "eventID": "dc16a1e4-cda2-4c05-8364-e48729b343dd",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListSigningCertificates",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.35",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: iam:ListSigningCertificates on resource: user temp-user because no identity-based policy allows the iam:ListSigningCertificates action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "3165d62b-f370-4764-815e-827d0fc3d487",
+      "eventID": "a015eca1-d37b-4a91-9819-fa821c1cc027",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:10Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "ListUsers",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.5",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: iam:ListUsers on resource: arn:aws:iam::107513503799:user/ because no identity-based policy allows the iam:ListUsers action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "984a45f3-362f-4594-856f-87f9fd09c019",
+      "eventID": "ba8030e3-a7b9-4492-a400-6103e5b35860",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "iam.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:46:55Z",
+      "eventSource": "datapipeline.amazonaws.com",
+      "eventName": "ListPipelines",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.18",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: datapipeline:ListPipelines on resource: arn:aws:datapipeline:us-east-1:107513503799:pipeline/* because no identity-based policy allows the datapipeline:ListPipelines action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "a3ffdf71-6c36-4edc-b23e-dfe50a73967e",
+      "eventID": "dd9dfc2d-e6f1-469a-9451-2d516527e3ca",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "datapipeline.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:46:55Z",
+      "eventSource": "comprehend.amazonaws.com",
+      "eventName": "ListEntityRecognizers",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.32",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: comprehend:ListEntityRecognizers because no identity-based policy allows the comprehend:ListEntityRecognizers action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "8e05b9f8-94e7-4cef-916f-ebf8e85ffe9d",
+      "eventID": "9714c9d8-b866-416d-8677-08d5be989f3e",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "comprehend.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:46:58Z",
+      "eventSource": "dax.amazonaws.com",
+      "eventName": "DescribeDefaultParameters",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.21",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: dax:DescribeDefaultParameters because no identity-based policy allows the dax:DescribeDefaultParameters action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "2e3427b8-7daf-49af-ab99-37275d554b16",
+      "eventID": "2180f786-4e0e-476a-af83-d32618b32788",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "dax.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:22Z",
+      "eventSource": "organizations.amazonaws.com",
+      "eventName": "ListAccounts",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.47",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: organizations:ListAccounts on resource: * because no resource-based policy allows the organizations:ListAccounts action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "d7185d46-3aba-4ca7-9deb-7ba1df4d0ede",
+      "eventID": "bd0a64b2-7e00-4069-80ce-f58e52940b31",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "organizations.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:28Z",
+      "eventSource": "route53.amazonaws.com",
+      "eventName": "ListHealthChecks",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.243",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: route53:ListHealthChecks because no identity-based policy allows the route53:ListHealthChecks action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "3f394d4f-b24e-4f6d-b606-c643da52f535",
+      "eventID": "1f4d7d34-da3f-4f62-89ce-ca287c20b40c",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "route53.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:09Z",
+      "eventSource": "iot.amazonaws.com",
+      "eventName": "ListAuthorizers",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.29",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: iot:ListAuthorizers on resource: * because no identity-based policy allows the iot:ListAuthorizers action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "1f9c63ca-0bcb-4d7e-b4df-851a080e74fb",
+      "eventID": "a8e2f4a6-ef73-4622-acc8-9651c5747f36",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "iot.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:19Z",
+      "eventSource": "mediaconvert.amazonaws.com",
+      "eventName": "ListPresets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.28",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "9a537c8d-49fe-4c85-beff-07060dd07ef3",
+      "eventID": "54979edf-5edb-470a-9e3a-ce3666ddf831",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:30Z",
+      "eventSource": "route53resolver.amazonaws.com",
+      "eventName": "ListResolverRules",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.29",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: route53resolver:ListResolverRules because no identity-based policy allows the route53resolver:ListResolverRules action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "4ad4a144-ebc4-409b-9ce3-efaaf006bfb5",
+      "eventID": "c2724f94-b320-44ec-a4db-5df1e049ad18",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "route53resolver.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:37Z",
+      "eventSource": "ssm.amazonaws.com",
+      "eventName": "ListComplianceItems",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.50",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: ssm:ListComplianceItems on resource: arn:aws:ssm:us-east-1:107513503799:* because no identity-based policy allows the ssm:ListComplianceItems action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "e38f6d50-d003-4392-b16f-c65056598cd0",
+      "eventID": "258ce2ae-9de2-4933-af26-fc9cf5f5c7a6",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "ssm.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:40Z",
+      "eventSource": "waf.amazonaws.com",
+      "eventName": "ListGeoMatchSets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.20",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: waf:ListGeoMatchSets on resource: arn:aws:waf::107513503799:geomatchset/* because no identity-based policy allows the waf:ListGeoMatchSets action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "d3f2c8d4-b3cd-4794-88a2-4bfbaae91856",
+      "eventID": "2f9fcdf2-53a1-4f83-b936-2d66ebf9c830",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "waf.amazonaws.com"
+      }
+    }
+  ]
+}
+sharkark@b0be8352ef4d INCIDENT-3252 % >....
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "e38f6d50-d003-4392-b16f-c65056598cd0",
+      "eventID": "258ce2ae-9de2-4933-af26-fc9cf5f5c7a6",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.2",
+        "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+        "clientProvidedHostHeader": "ssm.us-east-1.amazonaws.com"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDARSCCN4A3X2YWZ37ZI",
+        "arn": "arn:aws:iam::107513503799:user/temp-user",
+        "accountId": "107513503799",
+        "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
+        "userName": "temp-user"
+      },
+      "eventTime": "2023-08-26T20:47:40Z",
+      "eventSource": "waf.amazonaws.com",
+      "eventName": "ListGeoMatchSets",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "84.32.71.20",
+      "userAgent": "aws-sdk-go-v2/1.3.2",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::107513503799:user/temp-user is not authorized to perform: waf:ListGeoMatchSets on resource: arn:aws:waf::107513503799:geomatchset/* because no identity-based policy allows the waf:ListGeoMatchSets action",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "d3f2c8d4-b3cd-4794-88a2-4bfbaae91856",
+      "eventID": "2f9fcdf2-53a1-4f83-b936-2d66ebf9c830",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "waf.amazonaws.com"
+      }
+    }
+  ]
+}
+```
+The temp-user attempted to enumerate resources across multiple AWS services but was consistently denied access due to a lack of permissions.
+
+Analyzing next JSON for temp user
+
+```
+grep -h -A 20 temp-user 107513503799_CloudTrail_us-east-1_20230826T2105Z_fpp78PgremAcrW5c.json
+        "userName": "temp-user"
+      },
+      "responseElements": null,
+      "requestID": "db7e3483-7876-4fc5-b043-b55464e8d6e0",
+      "eventID": "674c1fc2-c61a-4f11-b35e-3e67b1909852",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "Root",
+        "principalId": "107513503799",
+        "arn": "arn:aws:iam::107513503799:root",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A32TCSFA53",
+        "sessionContext": {
+          "sessionIssuer": {},
+--
+        "userName": "temp-user"
+      },
+      "responseElements": null,
+      "requestID": "6cc85b17-109e-4143-88cd-896b59cd70cd",
+      "eventID": "7fee19b4-aa4c-4297-b0b9-f70749c21198",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "Root",
+        "principalId": "107513503799",
+        "arn": "arn:aws:iam::107513503799:root",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A32TCSFA53",
+        "sessionContext": {
+          "sessionIssuer": {},
+--
+        "userName": "temp-user"
+      },
+      "responseElements": null,
+      "requestID": "dca5544d-9e90-4a77-af5e-4322963e0df6",
+      "eventID": "c45745cd-d6aa-4cf6-b1fc-514a801cb239",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "Root",
+        "principalId": "107513503799",
+        "arn": "arn:aws:iam::107513503799:root",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A32TCSFA53",
+        "sessionContext": {
+          "sessionIssuer": {},
+--
+        "userName": "temp-user"
+      },
+      "responseElements": null,
+      "requestID": "d69635cb-67a4-4112-95d4-8bb4cfd7ccde",
+      "eventID": "d7a06b60-0bd7-4af2-b9ce-2d0197185bda",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "Root",
+        "principalId": "107513503799",
+        "arn": "arn:aws:iam::107513503799:root",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A32TCSFA53",
+        "sessionContext": {
+          "sessionIssuer": {},
+--
+        "userName": "temp-user"
+      },
+      "responseElements": null,
+      "requestID": "177e6cdd-992a-4a3e-825d-3c0cd3e00581",
+      "eventID": "118e0170-d435-4bee-bbb9-7b1633dae5af",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "107513503799",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "Root",
+        "principalId": "107513503799",
+        "arn": "arn:aws:iam::107513503799:root",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A3ULZJKHRZ",
+        "sessionContext": {
+          "sessionIssuer": {},
+```
+
+
+
 
 Checking for Devansh user
 
@@ -670,7 +1297,7 @@ ListAccessKeys: Lists access keys for the IAM user.
 
 ListGroupsForUser: Lists groups the IAM user belongs to.
 
-Checking for Adminuser
+Checking for AdminRole
 ```
  grep -h -A 30 AdminRole 107513503799_CloudTrail_us-east-1_20230826T2105Z_fpp78PgremAcrW5c.json
         "arn": "arn:aws:sts::107513503799:assumed-role/AdminRole/MySession",
@@ -713,6 +1340,68 @@ Checking for Adminuser
       }
     },
 ```
+Action performed by Admin role
+
+The log entry shows that the AdminRole was assumed
+
+The action performed here is likely AssumeRole, which is the API call used to create a session for an IAM role.
+
+
+Another JSON for AdminRole
+
+```
+
+sharkark@b0be8352ef4d INCIDENT-3252 % grep -h -A 10 AdminRole 107513503799_CloudTrail_us-east-1_20230826T2120Z_UCUhsJa0zoFY3ZO0.json
+        "arn": "arn:aws:sts::107513503799:assumed-role/AdminRole/MySession",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A3QPI4OFEH",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROARSCCN4A34V23XHK6I",
+            "arn": "arn:aws:iam::107513503799:role/AdminRole",
+            "accountId": "107513503799",
+            "userName": "AdminRole"
+          },
+          "attributes": {
+            "creationDate": "2023-08-26T20:54:28Z",
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2023-08-26T21:17:10Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "ListObjects",
+--
+        "arn": "arn:aws:sts::107513503799:assumed-role/AdminRole/MySession",
+        "accountId": "107513503799",
+        "accessKeyId": "ASIARSCCN4A3QPI4OFEH",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROARSCCN4A34V23XHK6I",
+            "arn": "arn:aws:iam::107513503799:role/AdminRole",
+            "accountId": "107513503799",
+            "userName": "AdminRole"
+          },
+          "attributes": {
+            "creationDate": "2023-08-26T20:54:28Z",
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2023-08-26T21:17:16Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+sharkark@b0be8352ef4d INCIDENT-3252 %
+
+```
+Actions Performed by AdminRole:
+
+ListObjects: Attempted to list objects in an S3 bucket.
+
+GetObject: Attempted to retrieve an object from an S3 bucket.
+
 
 6. Enumerating Permissions
 Next, I analyzed the logs to see what actions temp-user attempted. I found that the account tried to list the contents of an S3 bucket named emergency-data-recovery.
