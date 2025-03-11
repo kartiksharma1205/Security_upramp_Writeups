@@ -116,9 +116,29 @@ The logs showed that temp-user executed the GetCallerIdentity command, which is 
 Access Key ID: AKIARSCCN4A3WD4RO4P4
 
 5. Investigating the IP Address
-I used curl to check the IP address information:
+I checked the ip address on https://iplocation.io/ip/84.32.71.19
 
-```curl ipinfo.io/84.32.71.19```
+```
+Decimal:1411401491
+
+Hostname:84.32.71.19
+
+ASN:204770
+
+ISP:UAB Nacionalinis Telekomunikaciju Tinklas
+
+Services:Datacenter
+
+Country:United States
+
+State/Region:Illinois
+
+City:Chicago
+
+Latitude:41.8758 (41° 52′ 32.78″ N)
+
+Longitude:-87.6206 (87° 37′ 14.18″ W)
+```
 
 Checking for Devansh user
 
