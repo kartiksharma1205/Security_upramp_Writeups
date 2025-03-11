@@ -72,8 +72,9 @@ I focused on the earliest log file (107513503799_CloudTrail_us-east-1_20230826T2
 
 Searching for temp user Activity
 
-```grep -h -A 30 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json```
-```sharkark@b0be8352ef4d INCIDENT-3252 % grep -h -A 30 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json`
+```
+grep -h -A 30 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json
+grep -h -A 30 temp-user 107513503799_CloudTrail_us-east-1_20230826T2035Z_PjmwM7E4hZ6897Aq.json`
         "arn": "arn:aws:iam::107513503799:user/temp-user",
         "accountId": "107513503799",
         "accessKeyId": "AKIARSCCN4A3WD4RO4P4",
@@ -107,7 +108,8 @@ Searching for temp user Activity
         "principalId": "107513503799",
         "arn": "arn:aws:iam::107513503799:root",
         "accountId": "107513503799",
-        "accessKeyId": "ASIARSCCN4A34LC6MFWG", ```
+        "accessKeyId": "ASIARSCCN4A34LC6MFWG", 
+```
 
 
 The logs showed that temp-user executed the GetCallerIdentity command, which is similar to the whoami command in Linux. This command is often used by attackers to check the permissions of compromised credentials.
