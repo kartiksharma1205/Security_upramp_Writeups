@@ -9,7 +9,6 @@ An attacker broke into an AWS account by:
 3. Using those keys to get **admin access**  
 4. Copying **private files** from another restricted bucket  
 
-We know how the attack happened from the [original write-up](https://github.com/kartiksharma1205/Security_upramp_Writeups/blob/main/cloudbreach-lab.md). Now let's **prove it using logs**.
 
 ---
 
