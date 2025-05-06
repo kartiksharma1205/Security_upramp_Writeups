@@ -15,7 +15,7 @@ An attacker broke into an AWS account by:
 ## Step 1: Attacker Found the Open S3 Bucket  
 **Log Proof (AWS CloudTrail):**
   
-```json
+
 {
     "eventTime": "2023-11-05T14:22:10Z",
     "eventName": "ListBucket",
