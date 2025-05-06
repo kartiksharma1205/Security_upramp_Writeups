@@ -102,10 +102,3 @@ We know how the attack happened from the [original write-up](https://github.com/
 ---
 * 
 ``` 
-
-This Markdown version:
-- Uses clear headers and sections
-- Keeps the simple language
-- Preserves all the log examples in code blocks
-- Maintains the visual structure with emojis and symbols
-- Is ready to copy/paste into any Markdown editor or GitHub README
