@@ -1,7 +1,8 @@
 # AWS Account 238233324971 – Compromised AKID Investigation (2025‑03‑04)
 
-## Executive Summary
-On **4 March 2025, 22:01–22:05 UTC** an IAM user’s access key (`testing_only`) was abused from **IP 76.147.57.220** to escalate privileges, plant back‑door credentials, and spin up compute resources. All malicious activity is evidenced in *Cloudtrail_analysis.csv* (see accompanying event table). No cross‑account movement was observed, but multiple mechanisms for persistence were created inside the account.
+## 🆘 Incident Overview
+
+On **2025-03-04 at 22:05:27 UTC**, the billing alarm for AWS account `238233324971` was triggered due to an unexpected spike in charges. A **CloudWatch alarm** had also triggered slightly earlier at **22:02:15 UTC**, suggesting possible malicious activity. The Access Key ID (AKID) tied to a commonly used IAM user for integration testing was suspected to be **compromised** and has since been **deleted**.
 
 ---
 ## 🪜 Investigation Approach
