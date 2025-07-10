@@ -1,4 +1,4 @@
-# 🔍 CloudBreach Incident Summary - May 2025
+# 🔍 CloudBreach Incident Summary
 
 ## 🔍 Summary: What Really Happened?
 An attacker took advantage of a public AWS S3 bucket, snatched login credentials from it, escalated their privileges to admin level, and then helped themselves to sensitive data from another protected area. The entire sequence is backed up by log data and points consistently to the same IP address: **45.67.89.123**.
@@ -15,7 +15,7 @@ The attacker didn’t even have to log in. They accessed the bucket `cloudbreach
 "sourceIPAddress": "45.67.89.123"
 ```
 
-✅ **Human takeaway**: This was like leaving the front door unlocked. Anyone on the internet could walk in and peek around.
+✅ ** takeaway**: This was like leaving the front door unlocked. Anyone on the internet could walk in and peek around.
 
 ---
 
@@ -29,7 +29,7 @@ Next, they downloaded a file named `config.txt`—and unfortunately, it containe
 "sourceIPAddress": "45.67.89.123"
 ```
 
-✅ **Human takeaway**: The attacker found the digital equivalent of keys to the house sitting on the coffee table.
+✅ ** takeaway**: The attacker found the digital equivalent of keys to the house sitting on the coffee table.
 
 ---
 
@@ -43,7 +43,7 @@ With the stolen keys in hand, they accessed AWS using the identity of `breached-
 "sourceIPAddress": "45.67.89.123"
 ```
 
-✅ **Human takeaway**: They used the keys to impersonate an admin and unlock all the doors in the house.
+✅ **Takeaway**: They used the keys to impersonate an admin and unlock all the doors in the house.
 
 ---
 
@@ -57,7 +57,7 @@ Finally, they accessed the restricted bucket `finance-data` and downloaded a con
 "sourceIPAddress": "45.67.89.123"
 ```
 
-✅ **Human takeaway**: They got into the company’s safe and walked away with sensitive documents.
+✅ **Takeaway**: They got into the company’s safe and walked away with sensitive documents.
 
 ---
 
