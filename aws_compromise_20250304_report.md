@@ -77,7 +77,4 @@ The following investigation methodology was used:
 
 ---
 
-## References
-* *Cloudtrail_analysis.csv* — filtered for 2025‑03‑04 22:00‑22:06 UTC.
-* Prior incident playbook — *Cloudbreach‑May‑2025* (repeat attack chain).
 
