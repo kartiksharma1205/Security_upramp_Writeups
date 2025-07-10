@@ -54,7 +54,7 @@ The following investigation methodology was used:
 | Compromised user | `testing_only` |
 | Back‑door users | `system‑admin‑1741125702` (plus earlier `system‑admin‑1741070561/2200/8596`) |
 | Back‑door keys | AccessKey created 22:02:49 UTC |
-| Lambda ARN | `arn:aws:lambda:us‑east‑1:238233324971:function:data‑processor‑1741125906` |
+
 
 ---
 
