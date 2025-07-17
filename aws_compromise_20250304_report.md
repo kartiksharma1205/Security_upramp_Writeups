@@ -52,9 +52,7 @@ The following investigation methodology was used:
 
 | Category | Value |
 |----------|-------|
-| Source IP | **76.147.57.220** |
 | Compromised user | `testing_only` |
-| Back‑door users | `system‑admin‑1741125702` (plus earlier `system‑admin‑1741070561/2200/8596`) |
 | Back‑door keys | AccessKey created 22:02:49 UTC |
 
 
@@ -71,11 +69,8 @@ The following investigation methodology was used:
 
 ## Recommended Remediation (Immediate)
 1. **Revoke & delete** all artefacts listed above (users, keys, policies, role, Lambda, VPC, EC2).
-2. **Rotate credentials** for `testing_only` and migrate integration testing to short‑lived roles with MFA.
-3. **Block IP 76.147.57.220** at perimeter while analyzing logs.
-4. **Review S3 access logs** for `GetObject` events by the IoC IP to confirm/no data theft.
-5. **Enable GuardDuty, AWS Config rules, and tighter CloudWatch anomaly alarms** for IAM/network changes.
-6. **Post‑incident hardening:** enforce least‑privilege, remove long‑lived keys, and set lower‑threshold cost alerts.
+2. **Block IP 76.147.57.220** at perimeter while analyzing logs.
+3. **Review S3 access logs** for `GetObject` events by the IoC IP to confirm/no data theft.
 
 ---
 
