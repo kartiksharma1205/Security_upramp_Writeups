@@ -18,17 +18,18 @@ The following investigation methodology was used:
 
 ## Detailed Timeline (UTC)
 
-| Time | Actor / Credential | Event | Evidence ID | Notes |
-|------|--------------------|-------|-------------|-------|
-| 22:01:36 | `testing_only` (compromised) | `ListRoles`, `ListUsers`, `ListBuckets` | CT‑1 | Reconnaissance – IAM & S3 enumeration |
-| 22:01:40 | same | **`AssumeRole`** (`IntegrationTestingAdminRole`) | CT‑2 | Gains admin‑level STS session |
-| 22:02:44 | STS session | **`CreateUser system‑admin‑1741125702`** | CT‑3 | Persistence user created |
-| 22:02:49 | same | `AttachUserPolicy (CustomAdmin)` & **`CreateAccessKey`** | CT‑4 | Permanent admin key issued |
-| 22:02:58‑22:03:48 | new user | 13× `GetBucketPolicy`, `Describe*` | CT‑5 | Resource mapping |
-| 22:04:56 | new user | `CreateRole lambda‑role‑1741125895` | CT‑6 | Lambda execution role |
-| 22:05:07 | new user | **`CreateFunction20150331 data‑processor‑1741125906`** | CT‑7 | Back‑door Lambda function |
-| 22:05:08‑09 | new user | `CreateVpc`, `CreateSubnet`, `CreateSecurityGroup` | CT‑8 | New network enclave |
-| 22:05:10‑11 | new user | **`RunInstances` × 2** | CT‑9 | EC2 instances launched (billing spike) |
+| Time            | Actor                 | Event Description                                      | Evidence ID | MITRE Tactic         | MITRE Technique(s)                                  |
+|-----------------|-----------------------|--------------------------------------------------------|-------------|-----------------------|-----------------------------------------------------|
+| 22:01:36        | testing_only          | IAM & S3 enumeration                                   | CT‑1        | Reconnaissance        | T1580, T1589.001, T1526                             |
+| 22:01:40        | testing_only          | AssumeRole (Admin Role)                               | CT‑2        | Privilege Escalation  | T1078.004                                            |
+| 22:02:44        | STS session           | Create IAM user (system-admin)                        | CT‑3        | Persistence           | T1136.003                                            |
+| 22:02:49        | STS session           | Attach policy, create access key                      | CT‑4        | Credential Access     | T1552.001, T1098.003                                 |
+| 22:02:58–03:48  | new user              | GetBucketPolicy, Describe* (resource mapping)         | CT‑5        | Discovery             | T1526, T1580                                        |
+| 22:04:56        | new user              | Create Lambda execution role                          | CT‑6        | Defense Evasion       | T1098.003, T1484.001 (secondary)                   |
+| 22:05:07        | new user              | Deploy backdoor Lambda function                       | CT‑7        | Persistence / Execution | T1053.005, T1505.003                              |
+| 22:05:08–09     | new user              | Create VPC, Subnet, Security Group                    | CT‑8        | Resource Development   | T1583.006, T1578.002 (inferred)                    |
+| 22:05:10–11     | new user              | Launch EC2 instances (billing spike)                  | CT‑9        | Impact                 | T1496                                               |
+
 
 > **CT‑x** identifiers correspond to rows in the *Suspicious CloudTrail Events* table generated from the CSV.
 
